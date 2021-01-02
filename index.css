@@ -1,0 +1,10 @@
+.navbar-container {
+    width: 100vw;
+    border-bottom: 1px solid lightgray;
+    background: white;
+    display: flex;
+    z-index: 20;
+    @media only screen and (min-width: 1900px) {
+        border-bottom: 2px solid lightgray;
+    }
+}
