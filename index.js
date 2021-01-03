@@ -1,4 +1,4 @@
-const WIDTH_FACTOR = 0.95;
+const WIDTH_FACTOR = 0.9;
 const navbar = document.getElementById("navbar");
 const showMoreMenu = document.getElementById("show-more-menu");
 const showMoreButton = document.getElementById("show-more-button");
@@ -13,21 +13,19 @@ function reportWindowSize() {
     childrenWidth += children[i].offsetWidth;
   }
   let currentWidth = childrenWidth;
-  if (childrenWidth > window.innerWidth * WIDTH_FACTOR) {
+  if (childrenWidth > window.outerWidth * WIDTH_FACTOR) {
     showMoreButton.style.display = "block";
-    while (currentWidth > window.innerWidth * WIDTH_FACTOR) {
+    while (currentWidth > window.outerWidth * WIDTH_FACTOR) {
       let elementToMove = navbar.childNodes[navbar.childNodes.length - 3];
       if (!elementToMove) return;
-      currentWidth = childrenWidth - elementToMove.offsetWidth;
+      currentWidth -= elementToMove.offsetWidth || 0;
       showMoreMenu.appendChild(elementToMove);
     }
   } else {
     if (showMoreMenu.childNodes.length < 1) return;
     let elementToMove;
     do {
-      elementToMove =
-        showMoreMenu.firstChild 
-        // showMoreMenu.childNodes[showMoreMenu.childNodes.length - 1];
+      elementToMove = showMoreMenu.firstChild;
       if (!elementToMove) {
         showMoreButton.style.display = "none";
         return;
@@ -35,7 +33,7 @@ function reportWindowSize() {
       if (showMoreMenu.childNodes.length === 1)
         currentWidth -= showMoreButton.offsetWidth;
       navbar.insertBefore(elementToMove, showMoreButton);
-    } while (currentWidth + elementToMove.offsetWidth < window.innerWidth);
+    } while (currentWidth + elementToMove.offsetWidth < window.outerWidth);
     showMoreButton.style.display = "none";
   }
 }
