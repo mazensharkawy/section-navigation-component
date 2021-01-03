@@ -19,7 +19,7 @@ function reportWindowSize() {
       let elementToMove = navbar.childNodes[navbar.childNodes.length - 3];
       if (!elementToMove) return;
       currentWidth -= elementToMove.offsetWidth || 0;
-      showMoreMenu.appendChild(elementToMove);
+      showMoreMenu.insertBefore(elementToMove, showMoreMenu.firstChild);
     }
   } else {
     if (showMoreMenu.childNodes.length < 1) return;
