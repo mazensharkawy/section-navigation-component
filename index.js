@@ -26,15 +26,14 @@ function reportWindowSize() {
     let elementToMove;
     do {
       elementToMove =
-        showMoreMenu.childNodes[showMoreMenu.childNodes.length - 2] ||
-        showMoreMenu.childNodes[showMoreMenu.childNodes.length - 1];
+        showMoreMenu.firstChild 
+        // showMoreMenu.childNodes[showMoreMenu.childNodes.length - 1];
       if (!elementToMove) {
         showMoreButton.style.display = "none";
         return;
       }
       if (showMoreMenu.childNodes.length === 1)
         currentWidth -= showMoreButton.offsetWidth;
-      console.log(elementToMove);
       navbar.insertBefore(elementToMove, showMoreButton);
     } while (currentWidth + elementToMove.offsetWidth < window.innerWidth);
     showMoreButton.style.display = "none";
