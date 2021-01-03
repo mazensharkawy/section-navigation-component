@@ -84,7 +84,7 @@
   display: block;
 }
 .sub {
-  padding: 1vw;
+  padding: 2vw 0;
   width: 100%;
   border: none;
   border-radius: 0.2vw;
@@ -98,3 +98,7 @@
     border-radius: 4px;
   }
 }
+.sub p {
+    width: fit-content;
+    margin: 0 auto;
+  }
