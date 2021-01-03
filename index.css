@@ -33,6 +33,9 @@
     border-radius: 15px;
   }
 }
+.component p {
+    white-space: nowrap;
+}
 .component:hover {
   background: #b6c2ec;
 }
@@ -42,12 +45,7 @@
   background-position: 90% 50%;
   background-size: 12px;
   border-bottom: 3px solid #465072;
-  /* }
-.dropdown-menu{ */
-
   position: relative;
-  /* display: none; */
-  margin-right: -1.5vw;
   @media screen and (max-width: 600px) {
     display: inline-block;
     width: unset;
