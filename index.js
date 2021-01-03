@@ -1,25 +1,44 @@
-class MyComponent extends HTMLElement {
-  constructor() {
-    super();
-    this.addEventListener("click", () => {
-      this.style.color === "red"
-        ? (this.style.color = "blue")
-        : (this.style.color = "red");
-    });
+const WIDTH_FACTOR = 0.95;
+const navbar = document.getElementById("navbar");
+const showMoreMenu = document.getElementById("show-more-menu");
+const showMoreButton = document.getElementById("show-more-button");
+
+function reportWindowSize() {
+  if (!navbar) return;
+  const children = navbar.children;
+
+  let childrenWidth = 0;
+  //using this syntax to support IE
+  for (var i = 0; i < children.length; i++) {
+    childrenWidth += children[i].offsetWidth;
   }
-  connectedCallback() {
-    /*called when the element is 
-    connected to the page
-  */
-    this.style.color = "blue";
-
-    const template = document.querySelector("template");
-
-    const clone = document.importNode(template.content, true);
-
-    //this.appendChild(clone);
-    this.attachShadow({ mode: "open" });
-    this.shadowRoot.appendChild(clone);
+  let currentWidth = childrenWidth;
+  if (childrenWidth > window.innerWidth * WIDTH_FACTOR) {
+    showMoreButton.style.display = "block";
+    while (currentWidth > window.innerWidth * WIDTH_FACTOR) {
+      let elementToMove = navbar.childNodes[navbar.childNodes.length - 3];
+      if (!elementToMove) return;
+      currentWidth = childrenWidth - elementToMove.offsetWidth;
+      showMoreMenu.appendChild(elementToMove);
+    }
+  } else {
+    if (showMoreMenu.childNodes.length < 1) return;
+    let elementToMove;
+    do {
+      elementToMove =
+        showMoreMenu.childNodes[showMoreMenu.childNodes.length - 2] ||
+        showMoreMenu.childNodes[showMoreMenu.childNodes.length - 1];
+      if (!elementToMove) {
+        showMoreButton.style.display = "none";
+        return;
+      }
+      if (showMoreMenu.childNodes.length === 1)
+        currentWidth -= showMoreButton.offsetWidth;
+      console.log(elementToMove);
+      navbar.insertBefore(elementToMove, showMoreButton);
+    } while (currentWidth + elementToMove.offsetWidth < window.innerWidth);
+    showMoreButton.style.display = "none";
   }
 }
-customElements.define("cool-navbar", MyComponent);
+reportWindowSize();
+window.onresize = reportWindowSize;

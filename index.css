@@ -99,6 +99,17 @@
   }
 }
 .sub p {
-    width: fit-content;
-    margin: 0 auto;
-  }
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.show-more {
+  display: none;
+  border: none;
+  box-shadow: 1px 1px 5px #555 inset;
+}
+.show-more:hover > .menu-body-container {
+  display: block;
+}
+.show-more-menu {
+}
