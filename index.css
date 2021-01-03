@@ -4,9 +4,6 @@
   background: white;
   display: flex;
   z-index: 20;
-  @media screen and (min-width: 1900px) {
-    border-bottom: 2px solid lightgray;
-  }
 }
 
 .logo {
@@ -20,21 +17,9 @@
   border-right: 1px solid lightgray;
   background: white;
   transition: background 300ms;
-  @media screen and (max-width: 600px) {
-    padding: 4vw 8vw;
-    border-radius: 2.5vw;
-  }
-  @media screen and (min-width: 1024px and min-width: 600px) {
-    padding: 3.6vw 3vw;
-    border-radius: 1vw;
-  }
-  @media screen and (min-width: 1900px) {
-    padding: 28px 38px;
-    border-radius: 15px;
-  }
 }
 .component p {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 .component:hover {
   background: #b6c2ec;
@@ -46,16 +31,6 @@
   background-size: 12px;
   border-bottom: 3px solid #465072;
   position: relative;
-  @media screen and (max-width: 600px) {
-    display: inline-block;
-    width: unset;
-    margin-right: 0;
-    padding: 7vw 3.5vw;
-  }
-  @media screen and (min-width: 1900px) {
-    display: inline-block;
-    padding: 3.6vw 0;
-  }
 }
 .menu-body-container {
   display: none;
@@ -67,16 +42,6 @@
   right: 0;
   border-radius: 0.8vw;
   margin-top: min(2vw, 10px);
-  @media screen and (max-width: 600px) {
-    right: 0;
-    border-radius: 2.5vw;
-  }
-  @media screen and (min-width: 1024px and min-width: 600px) {
-    border-radius: 1vw;
-  }
-  @media screen and (min-width: 1900px) {
-    border-radius: 15px;
-  }
 }
 .navbar-dropdown:hover > .menu-body-container {
   display: block;
@@ -86,15 +51,6 @@
   width: 100%;
   border: none;
   border-radius: 0.2vw;
-  @media screen and (max-width: 600px) {
-    border-radius: 0.6vw;
-  }
-  @media screen and (min-width: 1024px and min-width: 600px) {
-    border-radius: 0.4vw;
-  }
-  @media screen and (min-width: 1900px) {
-    border-radius: 4px;
-  }
 }
 .sub p {
   width: fit-content;
@@ -111,3 +67,52 @@
 }
 .show-more-menu {
 }
+
+@media screen and (max-width: 600px) {
+  .sub {
+    border-radius: 0.6vw;
+  }
+  .menu-body-container {
+    right: 0;
+    border-radius: 2.5vw;
+  }
+  .component {
+    padding: 4vw 8vw;
+  }
+}
+@media screen and (min-width: 1024px and min-width: 600px) {
+  .sub {
+    border-radius: 0.4vw;
+  }
+  .menu-body-container {
+    border-radius: 1vw;
+  }
+  .navbar-dropdown {
+    display: inline-block;
+    width: unset;
+    margin-right: 0;
+    padding: 7vw 3.5vw;
+  }
+  .component {
+    padding: 3.6vw 3vw;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .sub {
+    border-radius: 4px;
+  }
+  .menu-body-container {
+    border-radius: 15px;
+  }
+  .navbar-dropdown {
+    display: inline-block;
+    padding: 3.6vw 0;
+  }
+  .navbar-container {
+    border-bottom: 2px solid lightgray;
+  }
+  .component {
+    padding: 28px 38px;
+  }
+}
+
