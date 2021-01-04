@@ -179,7 +179,7 @@
     animation: slideIn 0.5s ease-out;
   }
 }
-@media screen and (min-width: 1024px) and (min-width: 600px) {
+@media screen and (max-width: 1024px) and (min-width: 600px) {
   .component.sub {
     border-radius: 0.4vw;
     padding: 4vw 0;
