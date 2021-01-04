@@ -17,6 +17,7 @@
   border-right: 1px solid lightgray;
   background: white;
   transition: background 500ms;
+  cursor: pointer;
 }
 .component p {
   white-space: nowrap;
