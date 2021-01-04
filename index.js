@@ -1,4 +1,4 @@
-const WIDTH_FACTOR = 0.9;
+const WIDTH_FACTOR = 0.8;
 const navbar = document.getElementById("navbar");
 const showMoreMenu = document.getElementById("show-more-menu");
 const showMoreButton = document.getElementById("show-more-button");
